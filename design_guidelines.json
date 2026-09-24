@@ -1,0 +1,95 @@
+{
+  "project_title": "Chronicle CMS - Editorial Newsroom & Automated Photo Watermarking Platform",
+  "archetype": "Swiss & High-Contrast Editorial / Contemporary Newsroom",
+  "theme": "Light theme default with high contrast editorial monochrome + crimson signal accent",
+  "target_audience": "Journalists, Managing Editors, Content Publishers, Photojournalists, News Consumers",
+  "typography": {
+    "heading_font": "Playfair Display / Serif or Clash Display (Google Fonts / Fallback Georgia, serif)",
+    "body_font": "Manrope / IBM Plex Sans (Fallback system-ui, sans-serif)",
+    "mono_font": "JetBrains Mono / Source Code Pro (for watermark stats, meta info, image dimensions)",
+    "hierarchy": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-tight",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold tracking-tight",
+      "h3_subsection": "text-xl sm:text-2xl font-sans font-bold tracking-normal",
+      "h4_card": "text-lg sm:text-xl font-sans font-semibold",
+      "body": "text-base font-sans text-slate-800 leading-relaxed",
+      "caption_label": "text-xs uppercase tracking-widest font-mono font-medium text-slate-500"
+    }
+  },
+  "colors": {
+    "background_primary": "#F8F9FA",
+    "background_card": "#FFFFFF",
+    "background_sidebar": "#111827",
+    "foreground_primary": "#0F172A",
+    "foreground_muted": "#475569",
+    "accent_primary": "#DC2626",
+    "accent_primary_hover": "#B91C1C",
+    "accent_secondary": "#0284C7",
+    "border_subtle": "#E2E8F0",
+    "border_strong": "#0F172A",
+    "watermark_preview_bg": "#18181B",
+    "badge_bg": "#F1F5F9",
+    "badge_text": "#334155"
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-4 sm:px-8 lg:px-12 py-8",
+    "grid_gap": "gap-6 lg:gap-8",
+    "bento_grid_feed": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+    "header_height": "h-16 border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 z-50"
+  },
+  "key_features_layout": {
+    "news_feed": "Editorial news feed with category filter chips, search bar, sort options, and high-impact lead article cards.",
+    "article_editor": "Rich creation modal/drawer/page with Title, Category, Author, Content Body, and Drag-and-Drop Photo Uploader.",
+    "watermark_settings_panel": "Dedicated Watermark Processing Suite with editable watermark text (e.g. '© Chronicle News Wire'), opacity slider (10% - 100%), font size slider (12px - 64px), position selector (Bottom-Right default), and live instant photo preview.",
+    "article_detail": "Editorial article reader mode with photo carousel/gallery showcasing watermarked original photos, metadata, author bio, category badge, and delete actions.",
+    "media_manager": "Gallery grid of uploaded photos showing watermarking status (Watermarked ✓), file size, resolution, and quick preview/download/delete options."
+  },
+  "component_rules": {
+    "file_type": "JavaScript (.js and .jsx files). Use standard JS syntax.",
+    "buttons": "Pill-shaped or crisp rectangular buttons with high contrast hover states, shadow-sm, and explicit text color transition on hover.",
+    "navigation": "Visible header navbar with Brand logo ('CHRONICLE | Newsroom'), navigation links ('News Feed', 'Publisher Workbench', 'Watermark Settings', 'Media Library'), and 'New Article' CTA.",
+    "modals_and_sheets": "Use Shadcn Dialog/Sheet for Create Article and Watermark Settings with non-transparent solid background.",
+    "toasts": "Use Sonner for async notifications (e.g. 'Watermark applied bottom-right', 'Article published successfully')."
+  },
+  "universal_testing_requirements": {
+    "rule": "ALL interactive buttons, inputs, links, dropdowns, forms, cards, and key stats MUST include explicit data-testid attributes.",
+    "test_id_examples": [
+      "data-testid='navbar-logo'",
+      "data-testid='navbar-create-article-button'",
+      "data-testid='navbar-watermark-settings-button'",
+      "data-testid='article-list'",
+      "data-testid='article-card-1'",
+      "data-testid='article-title-input'",
+      "data-testid='article-category-select'",
+      "data-testid='article-author-input'",
+      "data-testid='article-body-textarea'",
+      "data-testid='photo-drag-drop-zone'",
+      "data-testid='article-submit-button'",
+      "data-testid='watermark-text-input'",
+      "data-testid='watermark-opacity-slider'",
+      "data-testid='watermark-fontsize-slider'",
+      "data-testid='watermark-save-settings-button'",
+      "data-testid='watermark-live-preview-image'",
+      "data-testid='article-detail-title'",
+      "data-testid='article-detail-watermarked-photo'",
+      "data-testid='article-delete-button'",
+      "data-testid='photo-delete-button'"
+    ]
+  },
+  "media_and_images": {
+    "fallback_news_photos": [
+      "https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwzfHxqb3VybmFsaXNtJTIwbmV3c3Jvb20lMjBlZGl0b3JpYWwlMjBuZXdzJTIwcGhvdG98ZW58MHx8fHwxNzkwMjc2NDM0fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1738190228336-aa4cf73874b7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHw0fHxqb3VybmFsaXNtJTIwbmV3c3Jvb20lMjBlZGl0b3JpYWwlMjBuZXdzJTIwcGhvdG98ZW58MHx8fHwxNzkwMjc2NDM0fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1566378246598-5b11a0d486cc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHxfHxqb3VybmFsaXNtJTIwbmV3c3Jvb20lMjBlZGl0b3JpYWwlMjBuZXdzJTIwcGhvdG98ZW58MHx8fHwxNzkwMjc2NDM0fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1624269305548-1527ef905ff6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwyfHxqb3VybmFsaXNtJTIwbmV3c3Jvb20lMjBlZGl0b3JpYWwlMjBuZXdzJTIwcGhvdG98ZW58MHx8fHwxNzkwMjc2NDM0fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.pexels.com/photos/12199409/pexels-photo-12199409.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure backend API endpoints support article creation, listing, details, deletion, photo uploads, image processing with PIL/Canvas for bottom-right semi-transparent text watermark, and watermark configuration settings stored in DB or backend state.",
+    "Integrate client-side or server-side Canvas / PIL photo watermarking rendering so users immediately see their configured watermark on uploaded photos.",
+    "Build a robust Watermark Settings control panel where user can test and tweak watermark text, opacity, size, and position.",
+    "Provide a sleek, responsive Editorial news feed with search, category filtering, and full photo gallery viewing experience.",
+    "Make sure all interactive elements feature data-testid attributes for E2E verification."
+  ]
+}

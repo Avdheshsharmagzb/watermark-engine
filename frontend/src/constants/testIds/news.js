@@ -1,0 +1,32 @@
+export const NEWS = {
+	navbarLogo: 'navbar-logo',
+	navFeed: 'nav-feed',
+	navMedia: 'nav-media',
+	navWatermark: 'navbar-watermark-settings-button',
+	createArticleButton: 'navbar-create-article-button',
+	searchInput: 'feed-search-input',
+	categoryFilter: 'feed-category-filter',
+	articleList: 'article-list',
+	articleCard: 'article-card',
+
+	titleInput: 'article-title-input',
+	categorySelect: 'article-category-select',
+	authorInput: 'article-author-input',
+	summaryInput: 'article-summary-input',
+	bodyTextarea: 'article-body-textarea',
+	dropZone: 'photo-drag-drop-zone',
+	fileInput: 'photo-file-input',
+	submitArticle: 'article-submit-button',
+
+	watermarkTextInput: 'watermark-text-input',
+	watermarkOpacity: 'watermark-opacity-slider',
+	watermarkFontSize: 'watermark-fontsize-slider',
+	watermarkPosition: 'watermark-position-select',
+	watermarkSave: 'watermark-save-settings-button',
+	watermarkPreview: 'watermark-live-preview-image',
+
+	detailTitle: 'article-detail-title',
+	detailPhoto: 'article-detail-watermarked-photo',
+	articleDelete: 'article-delete-button',
+	photoDelete: 'photo-delete-button',
+};
