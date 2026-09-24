@@ -1,0 +1,36 @@
+{
+  "summary": "First-run E2E validation of Chronicle CMS (news + text watermark). Backend: 12/12 pytest passed against public REACT_APP_BACKEND_URL. Frontend: verified NewsFeed loads, Create Article dialog publishes an article with attached image, backend applies Pillow text watermark, photo is stored in Emergent Object Storage, served via /api/files/<path> with image/jpeg, article detail shows watermarked hero photo (© Chronicle News Wire visible bottom-right), Watermark Settings page live preview updates when text is edited (URL param reflects new text and image reloads), Save persists settings, Media Library lists 3 watermarked assets with resolution/size and Watermarked ✓ badge, search + category filter + article delete all work.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Article detail / global toasts", "issues": ["Success toast overlays the top-right area where the 'New Article' button sits; during automated navigation it briefly blocks pointer events near the navbar 'Watermark' link. Consider positioning toasts below the navbar or with pointer-events:none on the container so nav buttons remain reachable while a toast is visible."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_chronicle_cms.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Optional: adjust toast placement so it does not overlap the primary navbar CTAs (minor UX)."
+  ],
+  "critical_code_review_comments": [
+    "server.py apply_text_watermark() rejects raw uploads that Pillow cannot parse and correctly returns 400 via HTTPException — good.",
+    "GET /api/files/{path:path} gates delivery on a matching non-deleted DB record, so soft-deleted photos are inaccessible even though object storage still holds bytes — good.",
+    "All Mongo queries use projection {'_id': 0}, so ObjectId serialization is avoided.",
+    "Watermark position validation and opacity/font_size clamping are enforced server-side.",
+    "Consider adding an index on photos.article_id and articles.is_deleted for scale (not blocking for MVP).",
+    "list_articles() calls article_public() per doc, which triggers N+1 photos queries — fine for MVP volume; batch aggregation would be a future optimization."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_chronicle_cms.py"
+  ],
+  "success_rate": { "backend": "100% (12/12)", "frontend": "100% of tested flows" },
+  "test_credentials": "N/A — app is fully open (no auth).",
+  "seed_data_creation": "Created a few TEST_/E2E_ articles+photos during testing; the E2E_TEST_Watermark_Story article was deleted at the end. Remaining Media Library entries (test.png/test.jpg from earlier smoke, and Flood hits coastal town) are harmless.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend pytest suite at /app/backend/tests/test_chronicle_cms.py covers categories, watermark settings CRUD with clamping, /watermark/preview jpeg output, article CRUD + filters, photo upload with Pillow watermark, /api/files serving, non-image 400, /photos list with article_title, photo delete, article-delete cascade to photos, 404 on missing article. Data-testids from /app/frontend/src/constants/testIds/news.js are all present and reliable. When automating navbar clicks right after a publish, the sonner toast may briefly overlap the 'Watermark' nav link — either wait ~5s for it to dismiss or navigate via page.goto('/watermark').",
+  "rca of the issue": "No production bugs found."
+}

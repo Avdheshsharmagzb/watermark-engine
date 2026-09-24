@@ -23,7 +23,7 @@ function App() {
           <Route path="/media" element={<MediaLibrary />} />
           <Route path="/watermark" element={<WatermarkSettings />} />
         </Routes>
-        <Toaster position="top-right" richColors />
+        <Toaster position="top-right" richColors offset={76} />
       </BrowserRouter>
     </div>
   );
